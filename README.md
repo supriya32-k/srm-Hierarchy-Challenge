@@ -1,150 +1,66 @@
 # srm-Hierarchy-Challenge
 # SRM Hierarchy Challenge
 
-A full-stack web application developed for the **SRM Full Stack Engineering Challenge** that processes node relationships, detects cycles, removes duplicate edges, and visualizes hierarchy trees.
+This project was developed for the **SRM Full Stack Engineering Challenge**.
+
+## Project Overview
+
+The application processes node relationships in the format:
+
+```json
+["A->B", "A->C", "B->D"]
+```
+
+and generates:
+
+- Hierarchy trees
+- Cycle detection
+- Invalid entries
+- Duplicate edges
+- Summary statistics
 
 ---
 
 ## Features
 
-- Accepts node relationships in `Parent->Child` format
-- Validates input structure
-- Detects invalid entries
-- Detects duplicate edges
-- Identifies cyclic groups
-- Builds hierarchy trees
-- Calculates maximum tree depth
-- Displays summary statistics
-- Interactive frontend UI for visualization
+- REST API endpoint `/bfhl`
+- Frontend visualization
+- Tree structure generation
+- Cycle detection
+- Duplicate edge detection
+- Invalid input handling
 
 ---
 
-## Tech Stack
+## Repository Contents
 
-### Frontend
-- React
-- CSS
-- Axios
+The complete project source code has been uploaded as a ZIP archive in this repository.
 
-### Backend
+Please download and extract the ZIP file to view:
+
+- Backend source code
+- Frontend source code
+- Project configuration files
+
+---
+
+## Technologies Used
+
 - Node.js
 - Express.js
-
-### Deployment
-- Frontend: Vercel
-- Backend: Render
-
----
-
-## API Endpoint
-
-### POST `/bfhl`
-
-### Request Body
-```json
-{
-  "data": ["A->B", "A->C", "B->D"]
-}
-```
-
-### Sample Response
-```json
-{
-  "user_id": "yourname_ddmmyyyy",
-  "email_id": "yourcollege@example.com",
-  "college_roll_number": "YOURROLLNO",
-  "hierarchies": [
-    {
-      "root": "A",
-      "tree": {
-        "A": {
-          "B": {
-            "D": {}
-          },
-          "C": {}
-        }
-      },
-      "depth": 3
-    }
-  ],
-  "invalid_entries": [],
-  "duplicate_edges": [],
-  "summary": {
-    "total_trees": 1,
-    "total_cycles": 0,
-    "largest_tree_root": "A"
-  }
-}
-```
+- React
+- JavaScript
+- HTML/CSS
 
 ---
 
-## Installation
+## Submission Links
 
-### Clone Repository
-```bash
-git clone https://github.com/yourusername/srm-Hierarchy-Challenge.git
-cd srm-Hierarchy-Challenge
-```
+### API URL
+http://localhost:3000/bfhl
 
-### Backend Setup
-```bash
-cd backend
-npm install
-npm start
-```
-
-### Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
+### Frontend URL
+http://localhost:3000
 
 ---
-
-## Deployment Links
-
-### Frontend
-Add your frontend deployment URL here
-
-### Backend
-Add your backend deployment URL here
-
----
-
-## Folder Structure
-
-```bash
-srm-Hierarchy-Challenge/
-│── backend/
-│── frontend/
-│── README.md
-```
-
----
-
-## Processing Rules
-
-- Valid format: `X->Y`
-- Only single uppercase letters allowed
-- Self-loops are invalid
-- Duplicate edges stored separately
-- First parent relationship is preserved
-- Cycles returned separately
-- Tree depth is longest root-to-leaf path
-
----
-
-## Author
-
-**Your Name**  
-SRM Institute of Science and Technology
-
----
-
-## License
-
-This project was created for the **SRM Full Stack Engineering Challenge**.
-
 

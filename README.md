@@ -1,21 +1,21 @@
 # srm-Hierarchy-Challenge
-# Hierarchy Engine
+# SRM Hierarchy Challenge
 
-A full-stack web application that processes node relationships and converts them into structured hierarchy trees with cycle detection, duplicate filtering, and visualization.
+A full-stack web application developed for the **SRM Full Stack Engineering Challenge** that processes node relationships, detects cycles, removes duplicate edges, and visualizes hierarchy trees.
+
+---
 
 ## Features
 
 - Accepts node relationships in `Parent->Child` format
+- Validates input structure
 - Detects invalid entries
-- Removes duplicate edges
-- Detects cyclic relationships
+- Detects duplicate edges
+- Identifies cyclic groups
 - Builds hierarchy trees
-- Calculates tree depth
-- Displays:
-  - Total Trees
-  - Total Cycles
-  - Largest Tree Root
-- Interactive frontend visualization
+- Calculates maximum tree depth
+- Displays summary statistics
+- Interactive frontend UI for visualization
 
 ---
 
@@ -40,20 +40,33 @@ A full-stack web application that processes node relationships and converts them
 
 ### POST `/bfhl`
 
-#### Request
+### Request Body
 ```json
 {
   "data": ["A->B", "A->C", "B->D"]
 }
 ```
 
-#### Response
+### Sample Response
 ```json
 {
   "user_id": "yourname_ddmmyyyy",
   "email_id": "yourcollege@example.com",
   "college_roll_number": "YOURROLLNO",
-  "hierarchies": [],
+  "hierarchies": [
+    {
+      "root": "A",
+      "tree": {
+        "A": {
+          "B": {
+            "D": {}
+          },
+          "C": {}
+        }
+      },
+      "depth": 3
+    }
+  ],
   "invalid_entries": [],
   "duplicate_edges": [],
   "summary": {
@@ -68,20 +81,20 @@ A full-stack web application that processes node relationships and converts them
 
 ## Installation
 
-### Clone repository
+### Clone Repository
 ```bash
-git clone https://github.com/yourusername/hierarchy-engine.git
-cd hierarchy-engine
+git clone https://github.com/yourusername/srm-Hierarchy-Challenge.git
+cd srm-Hierarchy-Challenge
 ```
 
-### Backend setup
+### Backend Setup
 ```bash
 cd backend
 npm install
 npm start
 ```
 
-### Frontend setup
+### Frontend Setup
 ```bash
 cd frontend
 npm install
@@ -93,17 +106,17 @@ npm run dev
 ## Deployment Links
 
 ### Frontend
-Add your frontend URL here
+Add your frontend deployment URL here
 
 ### Backend
-Add your backend URL here
+Add your backend deployment URL here
 
 ---
 
-## Project Structure
+## Folder Structure
 
 ```bash
-hierarchy-engine/
+srm-Hierarchy-Challenge/
 │── backend/
 │── frontend/
 │── README.md
@@ -115,10 +128,11 @@ hierarchy-engine/
 
 - Valid format: `X->Y`
 - Only single uppercase letters allowed
-- Self loops are invalid
-- First encountered parent wins
-- Duplicate edges are reported
-- Cycles are detected separately
+- Self-loops are invalid
+- Duplicate edges stored separately
+- First parent relationship is preserved
+- Cycles returned separately
+- Tree depth is longest root-to-leaf path
 
 ---
 
@@ -131,4 +145,6 @@ SRM Institute of Science and Technology
 
 ## License
 
-This project is developed for the SRM Full Stack Engineering Challenge.
+This project was created for the **SRM Full Stack Engineering Challenge**.
+
+
